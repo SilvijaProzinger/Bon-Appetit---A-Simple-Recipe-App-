@@ -1,0 +1,134 @@
+body {
+	padding:10px;
+	font-family: 'Playfair Display', serif;
+	background-color:lightyellow;
+}
+
+.title {
+	font-size:40px;
+	text-align:center;
+	letter-spacing:3px;
+	border-radius: 15px;
+	padding:10px;
+	background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+
+.search-and-add {
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	padding:20px;
+}
+
+button {
+	margin-left:10px;
+}
+
+.recipes {
+	display:flex;
+	flex-direction:flex-start;
+	flex-wrap:wrap;
+	justify-content: center;
+}
+
+.recipe-entry {
+	margin:10px;
+}
+
+.name {
+	font-size:20px;
+	text-align:center;
+}
+
+img {
+	height:auto;
+	max-width:100%;
+}
+
+a {
+	text-decoration:none;
+}
+
+.recipe-modal {
+	display: none; 
+	position: fixed; 
+	z-index: 100; 
+	top: 0;
+	overflow: auto;
+	height: auto;
+	width: calc(100% - 100px);
+	background-color: lightyellow;
+	border: 10px solid;
+	border-color: #F7CE68;
+}
+
+.recipe-details {
+	margin: 20px;
+}
+
+.recipe-close {
+	float: right;
+	top: 0;
+	right: 0;
+	position: absolute;
+	margin: 10px;
+}
+
+.recipe-close:hover {
+	background-color: #F7CE68;
+}
+.recipe-delete {
+	margin: 10px;
+	bottom: 0;
+	position: relative;
+	margin-left: -50px;
+	left: 50%;	
+}
+
+.recipe-delete:hover {
+	background-color: #F7CE68;
+}
+
+.new-recipe-modal {
+	display: none;
+	position: fixed;
+	z-index: 100; 
+	left: 50%;
+	top: 0;
+	overflow: auto;
+	width: 400px;
+	margin-left: -200px;
+	background-color: lightyellow;
+	border: 10px solid;
+	border-color: #F7CE68;
+	padding: 20px;
+	text-align: center;
+}
+
+
+.close-new {
+	float: right;
+	top: 0;
+	right: 0;
+	position: absolute;
+	margin: 10px;
+}
+
+.close-new:hover {
+	background-color: #F7CE68;
+}
+
+.save-recipe {
+	margin: 10px;
+	bottom: 0;
+	position: relative;
+}
+
+.save-recipe:hover {
+	background-color: #F7CE68;
+}
+
+textarea {
+	width: 300px;
+	height: 150px;
+}

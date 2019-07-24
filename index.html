@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Recipe App</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!--import Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+</head>
+<body>
+<div class="main">
+	<div class="title"><strong>Recipe App</strong></div>
+	<div class="search-and-add">
+		<div class="search"><input type="text" placeholder="search for recipes" id="searchArea" onkeyup="filterRecipes()"></input></div>
+		<button class="add" id="addBtn">+</button>
+	</div>
+	<div class="recipes" id="recipeSection">
+		<div class="recipe-entry"><div class="image"><img src="images/recipe1.jpg" alt="recipe1"></div><div class="name"><a href="#" data-recipe-index="0">Pasta Carbonara</a></div>
+		</div>
+		<div class="recipe-entry"><div class="image"><img src="images/recipe2.jpg" alt="recipe2"></div><div class="name"><a href="#" data-recipe-index="1">Garlic Butter Steak</a></div></div>
+		<div class="recipe-entry"><div class="image"><img src="images/recipe3.jpg" alt="recipe3"></div><div class="name"><a href="#"data-recipe-index="2">Lasagna</a></div></div>
+		<div class="recipe-entry"><div class="image"><img src="images/recipe4.jpg" alt="recipe4"></div><div class="name"><a href="#"data-recipe-index="3">Mac and Cheese</a></div></div>
+	</div>
+</div>
+<div class="recipe-modal" id="modal">
+	<div class="recipe-details" id="modalInfo"></div>
+	<button class="recipe-delete" id="modalDel">Delete Recipe</button>
+	<button class="recipe-close" id="modalClose">X</button>
+</div>
+<div class="new-recipe-modal" id="newRecipeModal">
+	<form class="new-recipe" id="newRecipe">
+		<h3>Add a new recipe:</h3>
+		Title<br>
+  		<input type="text" name="title"><br>
+  		Ingredients<br>
+  		<textarea name="ingredients" form="newRecipe"></textarea><br>
+  		Instructions<br>
+  		<textarea name="instructions" form="newRecipe"></textarea>
+	</form>
+	<button class="save-recipe" id="newSave">Save Recipe</button>
+	<button class="close-new" id="newClose">X</button>
+</div>
+	<script src="script.js"></script>
+</body>
+</html>
