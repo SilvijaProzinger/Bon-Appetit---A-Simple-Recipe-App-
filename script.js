@@ -24,7 +24,6 @@ var recipes = [
 }
 ]
 
-
 //make an event listener for each link and open the modal with recipe details
 var links = document.getElementsByTagName('a');
 for (let i = 0; i < links.length; i++) {    
@@ -32,13 +31,13 @@ for (let i = 0; i < links.length; i++) {
 }
 
 function openModal() {
-    console.log('click');
 	detailsModal.style.display = 'block';
 	var modalContent = document.getElementById('modalInfo');
 	// map function goes through all the properties in recipe array of objects and returns only the values and not the keys (title, ingredients and instructions)
 	var values = recipes.map(function(i) {
  	return '<h3>' + i.title + '</h3>' + '<br>' + '<h4>' + 'Ingredients:' + '</h4>' + i.ingredients + '<br>' + '<h4>' + 'Instructions:' + '</h4>'+ i.instructions;
 	});
+
 	//loop through the links and make each modal show only one looped entry (one recipe)
 	var modalBody = JSON.stringify(values[parseInt(event.currentTarget.dataset.recipeIndex)]);
     modalContent.innerHTML = modalBody
@@ -63,7 +62,6 @@ function closeNewModal(){
 var searchBtn = document.getElementById('searchArea');
 
 function filterRecipes(){
-	console.log('click')
 	let input = document.getElementById('searchArea').value.toUpperCase();
   	let recipesDiv = document.getElementById('recipeSection');
   	let recipeEntry = document.getElementsByClassName('recipe-entry');
@@ -81,16 +79,45 @@ function filterRecipes(){
 
 //add new recipe 
 var addBtn = document.getElementById('addBtn');
-addBtn.addEventListener('click', addRecipe);
+addBtn.addEventListener('click', openNewRecipeModal);
+
+function openNewRecipeModal(){
+	newModal.style.display = 'block';
+}
+
+var saveBtn = document.getElementById('newSave');
+saveBtn.addEventListener ('click', addRecipe);
 
 function addRecipe(title, ingredients, instructions) {
-	newModal.style.display = 'block';
-	console.log('wig')
+	var title = document.getElementById('title');
+	var ingredients = document.getElementById('ingredients');
+	var instructions = document.getElementById('instructions');
+	//add the new recipe to the recipes array of objects
 	recipes[recipes.length] = {
-		title: title,
-		ingredients: ingredients,
-		instructions: instructions
+		title: title.value,
+		ingredients: ingredients.value,
+		instructions: instructions.value
 	}
+	console.log(recipes);
+	//create a new recipe entry 
+	var recipeDiv = document.createElement('div')
+	var recipesDiv = document.getElementById('recipeSection').appendChild(recipeDiv);
+	recipeDiv.classList.add('recipe-entry');
+	
+	var recipeImg = document.createElement('img');
+	recipeDiv.appendChild(recipeImg);
+	recipeImg.alt = 'recipe[i]';
+	
+	var recipeName = document.createElement('div')
+	recipeDiv.appendChild(recipeName);
+	recipeName.classList.add('name');
+	
+	var recipeLink = document.createElement('a');
+	recipeName.appendChild(recipeLink);
+	recipeLink.href = '#';
+	recipeLink.setAttribute('data-recipe-index', '4');
+	recipeLink.innerHTML = title.value;
+	recipeLink.addEventListener('click', openModal);
 }
 
 //add('title', 'ingredients', 'instructions');
