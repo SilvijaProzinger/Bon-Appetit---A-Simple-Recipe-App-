@@ -5,8 +5,8 @@ Work in progress, made in HTML, CSS and vanilla JS.
 * a small list of recipes
 * on click you can see ingredients and istructions on how to prepare each recipe
 * filter/search for recipes
-* in progress - add new recipes
-* to be continued - delete recipes
+* add new recipes
+* to do - delete recipes
 
 
 ## How to run
