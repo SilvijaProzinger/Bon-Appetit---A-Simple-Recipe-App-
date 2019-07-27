@@ -92,11 +92,12 @@ function addRecipe(title, ingredients, instructions) {
 	var title = document.getElementById('title');
 	var ingredients = document.getElementById('ingredients');
 	var instructions = document.getElementById('instructions');
+	var image = document.getElementById('imgUrl')
 	//add the new recipe to the recipes array of objects
 	recipes[recipes.length] = {
 		title: title.value,
 		ingredients: ingredients.value,
-		instructions: instructions.value
+		instructions: instructions.value,
 	}
 	console.log(recipes);
 	//create a new recipe entry 
@@ -106,7 +107,12 @@ function addRecipe(title, ingredients, instructions) {
 	
 	var recipeImg = document.createElement('img');
 	recipeDiv.appendChild(recipeImg);
-	recipeImg.alt = 'recipe[i]';
+    recipeImg.setAttribute('src', image.value);
+	recipeImg.alt = 'recipe image';
+
+	//shrink the image to fit the thumbnail size
+	recipeImg.style.height = '200px';
+	recipeImg.style.width = '300px';
 	
 	var recipeName = document.createElement('div')
 	recipeDiv.appendChild(recipeName);
@@ -115,19 +121,23 @@ function addRecipe(title, ingredients, instructions) {
 	var recipeLink = document.createElement('a');
 	recipeName.appendChild(recipeLink);
 	recipeLink.href = '#';
+
 	recipeLink.setAttribute('data-recipe-index', '4');
 	recipeLink.innerHTML = title.value;
 	recipeLink.addEventListener('click', openModal);
+
+	document.getElementById('newRecipe').reset();
 }
 
-//add('title', 'ingredients', 'instructions');
 
-
-/*delete the recipe 
+/*
+//delete the recipe 
 var modalDeleteBtn = document.getElementById('modalDel');
 modalDeleteBtn.addEventListener('click', deleteRecipe);
 
 function deleteRecipe(){
 	console.log('delete')
+	const indexToDel =  recipe.title;
+	const filteredRecipes = recipes.filter(item => item.id !== indexToDel);	
 }
 */
