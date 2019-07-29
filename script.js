@@ -1,5 +1,7 @@
 var detailsModal = document.getElementById('modal');
 var newModal = document.getElementById('newRecipeModal')
+var eventTarg;
+var eventDiv;
 
 var recipes = [
 {
@@ -31,11 +33,15 @@ for (let i = 0; i < links.length; i++) {
 }
 
 function openModal() {
+	eventTarg = event.target.innerHTML;
+	eventDiv = event.target;
+    console.log(eventTarg)
 	detailsModal.style.display = 'block';
 	var modalContent = document.getElementById('modalInfo');
 	// map function goes through all the properties in recipe array of objects and returns only the values and not the keys (title, ingredients and instructions)
 	var values = recipes.map(function(i) {
  	return '<h3>' + i.title + '</h3>' + '<br>' + '<h4>' + 'Ingredients:' + '</h4>' + i.ingredients + '<br>' + '<h4>' + 'Instructions:' + '</h4>'+ i.instructions;
+	//recipeTitle = recipes[i].title;
 	});
 
 	//loop through the links and make each modal show only one looped entry (one recipe)
@@ -130,14 +136,16 @@ function addRecipe(title, ingredients, instructions) {
 }
 
 
-/*
 //delete the recipe 
 var modalDeleteBtn = document.getElementById('modalDel');
 modalDeleteBtn.addEventListener('click', deleteRecipe);
 
+//delete the recipe object if it's title is the same as the event target, the recipe title
 function deleteRecipe(){
 	console.log('delete')
-	const indexToDel =  recipe.title;
-	const filteredRecipes = recipes.filter(item => item.id !== indexToDel);	
+	console.log(eventTarg)
+	recipes.splice(recipes.findIndex(item => item.title === eventTarg), 1)
+	//delete the recipe div and it's parent and grandparent element
+	eventDiv.parentNode.parentNode.parentNode.removeChild(eventDiv.parentNode.parentNode)
+	detailsModal.style.display = 'none';
 }
-*/
