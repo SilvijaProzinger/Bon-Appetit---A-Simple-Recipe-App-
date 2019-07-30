@@ -1,7 +1,7 @@
 body {
 	padding:10px;
 	font-family: 'Playfair Display', serif;
-	background-color:lightyellow;
+	background-color: white;
 }
 
 .title {
@@ -20,8 +20,23 @@ body {
 	padding:20px;
 }
 
-button {
-	margin-left:10px;
+input {
+	width: 200px;
+	padding: 10px;
+}
+
+input:focus { 
+  background-color: lightyellow;
+}
+
+svg {
+	width: 35px;
+	height: 35px;
+	margin-left: 20px;
+}
+
+svg:hover {
+	fill: #FBAB7E;
 }
 
 .recipes {
@@ -33,6 +48,13 @@ button {
 
 .recipe-entry {
 	margin:10px;
+}
+
+.recipe-entry:hover {
+	background: rgba(0,0,0,0);
+	color: #FBAB7E;
+	box-shadow: inset 0 0 0 3px #FBAB7E;
+	padding: 20px;
 }
 
 .name {
@@ -47,6 +69,11 @@ img {
 
 a {
 	text-decoration:none;
+	color: black;
+}
+
+a:hover {
+	color: #FBAB7E;
 }
 
 .recipe-modal {
@@ -105,6 +132,9 @@ a {
 	text-align: center;
 }
 
+.new-recipe-modal input {
+	width: 280px;
+}
 
 .close-new {
 	float: right;
