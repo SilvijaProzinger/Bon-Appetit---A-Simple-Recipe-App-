@@ -45,8 +45,9 @@ function openModal() {
 	});
 
 	//loop through the links and make each modal show only one looped entry (one recipe)
-	var modalBody = JSON.stringify(values[parseInt(event.currentTarget.dataset.recipeIndex)]);
-    modalContent.innerHTML = modalBody
+	var stringified = JSON.stringify(values[parseInt(event.currentTarget.dataset.recipeIndex)]);
+	var modalText = stringified.slice(1,-1); // remove the commas from the beggining and start of stringified object
+    modalContent.innerHTML = modalText;
 }
 
 //close the modal on button click
