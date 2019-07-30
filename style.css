@@ -36,7 +36,7 @@ svg {
 }
 
 svg:hover {
-	fill: #FBAB7E;
+	fill: #d0723d;
 }
 
 .recipes {
@@ -73,7 +73,7 @@ a {
 }
 
 a:hover {
-	color: #FBAB7E;
+	color: #d0723d;
 }
 
 .recipe-modal {

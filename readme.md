@@ -8,7 +8,8 @@ Live preview: https://silvijaprozinger.github.io/Bon-Appetit---A-Simple-Recipe-A
 * on click you can see ingredients and istructions on how to prepare each recipe
 * filter/search for recipes
 * add new recipes
-* to do - delete recipes
+* delete recipes
+* to do - add local storage so that changes persist after reloading
 
 
 ## How to run
